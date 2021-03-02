@@ -17,7 +17,7 @@ x_port = 514
 srv_ip = "10.0.2.15"
 srv_port = 1023
 
-def send_ACK(sip, dip, sport, dport):
+def send_SYN(sip, dip, sport, dport):
 	ip = IP(src=sip, dst=dip)
 	tcp = TCP(sport=sport, dport=dport)
 	tcp.flags = "S"
@@ -28,7 +28,7 @@ def send_ACK(sip, dip, sport, dport):
 		# ls(packet) # "List available layers, or infos on a given layer class or name."
 		send(packet)
 	else:
-		print("TCP flag not set to SYN in send_ACK function. Quitting...")
+		print("Error: TCP flag not set to SYN in send_SYN function. Quitting...")
 		quit()
 
-send_ACK(srv_ip, x_ip, srv_port, x_port)
+send_SYN(srv_ip, x_ip, srv_port, x_port)
