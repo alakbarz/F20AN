@@ -50,18 +50,19 @@ def send_ACK(sip, dip, sport, dport, seq, ack):
 def send_RSH_data():
 	print("Something")
 
-sniffer = AsyncSniffer(count=2, filter="tcp")
-
+sniffFilter = "tcp"
+sniffer = AsyncSniffer(filter=sniffFilter)
+print("Sniffing with filter {}".format(sniffFilter))
 sniffer.start()
 
 send_SYN(srv_ip, x_ip, srv_port, x_port)
 
 # time.sleep(20)
 
-# sniffer.stop()
-
+sniffer.stop()
 results = sniffer.results
-print(results)
+print("\nSniffing Results:")
+print(results.summary())
 
 # sniff syn+ack response from victim
 # send_ACK(srv_ip, x_ip, srv_port, x_port, seq, ack)
