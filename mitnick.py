@@ -11,6 +11,11 @@
 # This code was completed for the Advanced Network Security (F20AN) course at
 # Heriot-Watt University to demonstrate TCP session hijacking
 
+# Credits
+# =======
+# Based on SEED labs tutorial for the Mitnick attack:
+# https://seedsecuritylabs.org/Labs_16.04/PDF/Mitnick_Attack.pdf
+
 # U · URG bit
 # A · ACK bit
 # P · PSH bit
